@@ -1034,3 +1034,92 @@ nav#filter li {
 	user-select: none;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+
+
+/* Portfolio Grid Alignment CSS */
+.portfolio-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust spacing between items */
+}
+
+.portfolio-items .isotopeItem {
+  flex: 0 0 calc(33.333% - 14px); /* 3 items per row with gap consideration */
+  margin-bottom: 20px;
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  height: 250px; /* Set consistent height for all items */
+  border-radius: 8px; /* Optional: adds rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds subtle shadow */
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintains aspect ratio while filling the container */
+  object-position: center; /* Centers the image */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05); /* Optional: slight zoom on hover */
+}
+
+.portfolio-desc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-item:hover .portfolio-desc {
+  opacity: 1;
+}
+
+.folio-info {
+  text-align: center;
+  color: white;
+}
+
+.folio-info h5 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.folio-info i {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.folio-info a:hover i {
+  color: #007bff; /* Change to your theme color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .portfolio-items .isotopeItem {
+    flex: 0 0 calc(50% - 10px); /* 2 items per row on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-items .isotopeItem {
+    flex: 0 0 100%; /* 1 item per row on mobile */
+  }
+  
+  .portfolio-item {
+    height: 200px; /* Smaller height on mobile */
+  }
+}
